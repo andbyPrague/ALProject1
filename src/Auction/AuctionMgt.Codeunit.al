@@ -32,84 +32,35 @@ codeunit 50151 "Auction Management"
         foreach JsonToken in JsonArray do begin
             JsonObject := JsonToken.AsObject();
 
-            if JsonObject.Get('zakladniInformace', BasicInfoToken) then begin
+            if JsonObject.Get('zakladniInformace', BasicInfoToken) then
                 BasicInfoObject := BasicInfoToken.AsObject();
 
-                AuctionTmp.Init();
+            AuctionTmp.Init();
 
-                if BasicInfoObject.Get('cisloDrazby', TempToken) then
-                    AuctionTmp."Auction Number" := CopyStr(TempToken.AsValue().AsText(), 1, 20);
 
-                if JsonObject.Get('adresa', BasicInfoToken) then begin
-                    BasicInfoObject := BasicInfoToken.AsObject();
-                    if JsonObject.Get('ulice', TempToken) then begin
-                        AuctionTmp."Internal Note" := CopyStr(TempToken.AsValue().AsText(), 1, 100);
-                    end;
+            if BasicInfoObject.Get('cisloDrazby', TempToken) then
+                AuctionTmp."Auction Number" := CopyStr(TempToken.AsValue().AsText(), 1, 20);
 
-                end;
+            if BasicInfoObject.Get('formaDrazby', TempToken) then
+                AuctionTmp."Internal Note" := CopyStr(TempToken.AsValue().AsText(), 1, 5);
 
-                if BasicInfoObject.Get('konaniDrazby', TempToken) then begin
-                    BasicInfoObject := TempToken.AsObject();
-                    if BasicInfoObject.Get('url', TempToken) then
-                        AuctionTmp.URL := CopyStr(TempToken.AsValue().AsText(), 1, 2048);
-                end;
+            if BasicInfoObject.Get('konaniDrazby', TempToken) then begin
+                BasicInfoObject := TempToken.AsObject();
+                if BasicInfoObject.Get('url', TempToken) then
+                    AuctionTmp.URL := CopyStr(TempToken.AsValue().AsText(), 1, 2048);
+            end;
 
-                AuctionTmp."Last Updated" := CurrentDateTime;
+            AuctionTmp."Last Updated" := CurrentDateTime;
 
-                if AuctionTmp."Auction Number" <> '' then begin
-                    if AuctionTmp.Get(AuctionTmp."Auction Number") then
-                        AuctionTmp.Modify()
-                    else
-                        AuctionTmp.Insert();
-                end;
+            if AuctionTmp."Auction Number" <> '' then begin
+                if AuctionTmp.Get(AuctionTmp."Auction Number") then
+                    AuctionTmp.Modify()
+                else
+                    AuctionTmp.Insert();
             end;
         end;
     end;
 
-    local procedure ProcessJsonArray(JsonToken: JsonToken; var AuctionTmp: Record "Auction Tmp")
-    var
-        JsonArray: JsonArray;
-        ArrayToken: JsonToken;
-        JsonObject: JsonObject;
-        BasicInfoToken: JsonToken;
-        AuctionInfoObject: JsonObject;
-        TempToken: JsonToken;
-    begin
-        if not JsonToken.IsArray then
-            exit;
-
-        JsonArray := JsonToken.AsArray();
-        foreach ArrayToken in JsonArray do begin
-            if not ArrayToken.IsObject then
-                exit;
-
-            JsonObject := ArrayToken.AsObject();
-            if not JsonObject.Get('zakladniInformace', BasicInfoToken) then
-                exit;
-
-            AuctionInfoObject := BasicInfoToken.AsObject();
-            AuctionTmp.Init();
-
-
-            if GetJsonValue(AuctionInfoObject, 'cisloDrazby', TempToken) then
-                AuctionTmp."Auction Number" := CopyStr(TempToken.AsValue().AsText(), 1, 20);
-
-
-            if GetJsonValue(JsonObject, 'url', TempToken) then
-                AuctionTmp.URL := CopyStr(TempToken.AsValue().AsText(), 1, 2048);
-        end;
-
-
-        if GetJsonValue(JsonObject, 'udajeProUhraduCeny', TempToken) then
-            AuctionTmp."Internal Note" := CopyStr(TempToken.AsValue().AsText(), 1, 100);
-
-        AuctionTmp."Last Updated" := CurrentDateTime;
-
-        if AuctionTmp.Get(AuctionTmp."Auction Number") then
-            AuctionTmp.Modify()
-        else
-            AuctionTmp.Insert();
-    end;
 
     local procedure GetJsonValue(var JsonObject: JsonObject; TokenPath: Text; var ReturnToken: JsonToken): Boolean
     begin
