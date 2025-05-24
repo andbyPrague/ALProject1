@@ -23,13 +23,13 @@ page 50110 "Auction Card"
                 field("Internal Note"; Rec."Internal Note")
                 {
                     ApplicationArea = All;
-                    ToolTip = 'Specifies the internal note for the auction';
+                    ToolTip = 'Random field';
                     MultiLine = true;
                 }
                 field(URL; Rec.URL)
                 {
                     ApplicationArea = All;
-                    ToolTip = 'Specifies the URL to the auction details';
+                    ToolTip = 'URL where you can find more details about the auction. Click to open in your browser';
                     Editable = false;
                     ExtendedDatatype = URL;
 
@@ -42,7 +42,7 @@ page 50110 "Auction Card"
                 field("Last Updated"; Rec."Last Updated")
                 {
                     ApplicationArea = All;
-                    ToolTip = 'Specifies when the auction data was last updated';
+                    ToolTip = 'Specifies when the auction information was last updated from the source';
                     Editable = false;
                 }
             }

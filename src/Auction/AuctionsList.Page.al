@@ -16,15 +16,18 @@ page 50152 "Auctions List"
                 field("Auction Number"; Rec."Auction Number")
                 {
                     ApplicationArea = All;
+                    ToolTip = 'Specifies the auction number.';
                 }
                 field("Internal Note"; Rec."Internal Note")
                 {
                     ApplicationArea = All;
+                    ToolTip = 'Specifies any internal notes or comments about the auction.';
                 }
                 field(URL; Rec.URL)
                 {
                     ApplicationArea = All;
                     Editable = false;
+                    ToolTip = 'Specifies the URL where you can find more details about the auction. Click to open in your browser.';
 
                     trigger OnDrillDown()
                     begin
@@ -35,6 +38,7 @@ page 50152 "Auctions List"
                 field("Last Updated"; Rec."Last Updated")
                 {
                     ApplicationArea = All;
+                    ToolTip = 'Specifies when the auction information was last updated from the source.';
                 }
             }
         }

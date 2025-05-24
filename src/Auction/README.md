@@ -68,8 +68,8 @@ If you encounter issues:
 ## Development
 
 The solution uses the following object IDs:
-- Table 50150: Auction Tmp
-- Codeunit 50151: Auction Management
-- Page 50152: Auctions List 
+- Table 50150: "Auction Tmp"
+- Codeunit 50151: "Auction Management"
+- Page 50152: "Auctions List" 
 - Page 50162 "Auction Links FactBox"
 - Page 50110 "Auction Card"

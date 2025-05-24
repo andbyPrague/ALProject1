@@ -15,7 +15,7 @@ page 50162 "Auction Links FactBox"
                 {
                     ApplicationArea = All;
                     Caption = 'Auction URL';
-                    ToolTip = 'Click to open the auction in your browser';
+                    ToolTip = 'URL where you can find more details about the auction. Click to open in your browser';
                     Editable = false;
 
                     trigger OnDrillDown()
@@ -28,6 +28,7 @@ page 50162 "Auction Links FactBox"
                 {
                     ApplicationArea = All;
                     Caption = 'Last Update';
+                    ToolTip = 'Shows when the auction information was last updated from the source';
                     StyleExpr = UpdateStyle;
                 }
             }
@@ -38,6 +39,7 @@ page 50162 "Auction Links FactBox"
                 {
                     ApplicationArea = All;
                     Caption = 'Data Age';
+                    ToolTip = 'Specifies when the auction data was last updated';
                     Editable = false;
                 }
             }
