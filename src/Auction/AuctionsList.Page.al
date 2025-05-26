@@ -1,9 +1,9 @@
-page 50152 "Auctions List"
+page 50112 "Auctions List"
 {
     PageType = List;
     ApplicationArea = All;
     UsageCategory = Lists;
-    SourceTable = "Auction Tmp";
+    SourceTable = Auction;
     Caption = 'Auctions';
     CardPageId = "Auction Card";
 

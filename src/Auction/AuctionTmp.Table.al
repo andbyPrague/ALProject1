@@ -1,7 +1,6 @@
-table 50150 "Auction Tmp"
+table 50110 Auction
 {
-    Caption = 'Auction Temporary';
-    // TableType = Temporary;
+    Caption = 'Auction';
 
     fields
     {

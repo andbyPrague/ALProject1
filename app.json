@@ -1,36 +1,23 @@
 {
-  "id": "d6fd814b-d478-49d5-9b18-c6478556d188",
+  "id": "00000000-0000-0000-0000-000000000001",
   "name": "Auction Integration",
-  "publisher": "Default Publisher",
+  "publisher": "ANDBY",
   "version": "1.0.0.0",
-  "brief": "Integration with public auction data",
+"brief": "Integration with public auction data",
   "description": "Displays auction data from public JSON source",
   "privacyStatement": "",
   "EULA": "",
   "help": "",
   "url": "",
   "logo": "",
-  "dependencies": [
-    {
-      "id": "63ca2fa4-4f03-4f2b-a480-172fef340d3f",
-      "name": "System Application",
-      "publisher": "Microsoft",
-      "version": "25.0.0.0"
-    },
-    {
-      "id": "437dbf0e-84ff-417a-965d-ed2bb9650972",
-      "name": "Base Application",
-      "publisher": "Microsoft",
-      "version": "25.0.0.0"
-    }
-  ],
+  "dependencies": [],
   "screenshots": [],
-  "platform": "25.0.0.0",
+  "platform": "1.0.0.0",
   "application": "25.0.0.0",
   "idRanges": [
     {
       "from": 50100,
-      "to": 50199
+      "to": 50149
     }
   ],
   "resourceExposurePolicy": {
@@ -40,15 +27,6 @@
   },
   "runtime": "14.0",
   "features": [
-    "NoImplicitWith",
-    "TranslationFile"
-  ],
-
-  "internalsVisibleTo":  [
-  {
-  "id": "00000000-0000-0000-0000-000000000002",
-  "name": "MyAucApp",
-  "publisher": "Andrii"
-  }
+    "NoImplicitWith"
   ]
 }

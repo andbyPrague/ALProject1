@@ -1,7 +1,7 @@
-page 50162 "Auction Links FactBox"
+page 50111 "Auction Links FactBox"
 {
     PageType = CardPart;
-    SourceTable = "Auction Tmp";
+    SourceTable = Auction;
     Caption = 'Auction Links';
 
     layout

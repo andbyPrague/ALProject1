@@ -1,7 +1,7 @@
 page 50110 "Auction Card"
 {
     PageType = Card;
-    SourceTable = "Auction Tmp";
+    SourceTable = Auction;
     ApplicationArea = All;
     UsageCategory = None;
     Caption = 'Auction Details';
